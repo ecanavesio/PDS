@@ -1,0 +1,17 @@
+{
+  "name": "pds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ecanavesio/PDS.git"
+  },
+  "author": "Emanuel Canavesio",
+  "license": "MIT",
+  "dependencies": {
+    "gnu-plot": "^0.2.5",
+    "mathjs": "^8.1.1"
+  }
+}
