@@ -1,6 +1,6 @@
 const gnuplot = require('gnu-plot');
-const plot = gnuplot();
+const plotObj = gnuplot();
 
-plot([{
+plotObj.plot([{
 	data:[[0,0],[1,1],[2,0]]
-}]);
+}])
