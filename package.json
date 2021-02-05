@@ -11,7 +11,10 @@
   "author": "Emanuel Canavesio",
   "license": "MIT",
   "dependencies": {
+    "fft-js": "0.0.12",
     "gnu-plot": "^0.2.5",
-    "mathjs": "^8.1.1"
+    "lodash": "^4.17.20",
+    "mathjs": "^8.1.1",
+    "underscore": "^1.12.0"
   }
 }

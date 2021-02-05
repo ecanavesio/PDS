@@ -14,7 +14,9 @@ This project is a backup of all my proves and practices about digital signal pro
 
 - [gnu-plot](https://github.com/V1rgul/node-gnuplot)
 - [mathjs](https://mathjs.org/index.html)
+- [fft-js](https://github.com/vail-systems/node-fft)
 - [underscore](https://underscorejs.org/)
+- [lodash](https://lodash.com/)
 
 ### Curious Tutorials 
 
