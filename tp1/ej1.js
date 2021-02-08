@@ -39,5 +39,5 @@ const x = quantification(2, 1, sampledSin(1, 10, 0, 400, 0, 1));
 const ns = Array.from(x.keys());
 plot([{
   data: ns.pair(x),
-  style: "dots"
+  style: "linespoints"
 }])

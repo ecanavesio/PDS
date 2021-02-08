@@ -11,12 +11,36 @@ const { sin, pi, multiply, add, divide, ceil, round, asin } = require("mathjs");
  */
 function sampledSin(A, fs, phi, fm, t0, tf) {
   const dt = 1/fm;
-  const N = (tf - t0) * fm;
+  let N = (tf - t0) * fm;
+  N = N < 1 ? 1 : N;
   const dts = add(multiply(Array.from(Array(N).keys()), dt), t0);
   const base = 2 * pi * fs;
 
   // A * sin( 2*pi*fs * (t0 + n*dt) + phi);
   return multiply(sin(add(multiply(dts, base),phi)), A);
+}
+
+/**
+ * @param {Number} A Signal amplitude
+ * @param {Number} fs Signal frequency
+ * @param {Number} phi Signal phase
+ * @param {Number} fm Sampling frequency
+ * @param {Number} t0 Initial time
+ * @param {Number} tf Final time
+ * @returns {Array<Number>}
+ */
+function sampledSinWithT(A, fs, phi, fm, t0, tf) {
+  const dt = 1/fm;
+  let N = (tf - t0) * fm;
+  N = N < 1 ? 1 : N;
+  const dts = add(multiply(Array.from(Array(N).keys()), dt), t0);
+  const base = 2 * pi * fs;
+
+  // A * sin( 2*pi*fs * (t0 + n*dt) + phi);
+  return {
+    t: dts,
+    x: multiply(sin(add(multiply(dts, base),phi)), A)
+  };
 }
 
 /**
@@ -30,7 +54,8 @@ function sampledSin(A, fs, phi, fm, t0, tf) {
  */
 function sampledSyncExt(A, fs, phi, fm, t0, tf) {
   const dt = 1/fm;
-  const N = (tf - t0) * fm;
+  let N = (tf - t0) * fm;
+  N = N < 1 ? 1 : N;
   const dts = add(multiply(Array.from(Array(N).keys()), dt), t0);
   const base = 2 * pi * fs;
 
@@ -64,7 +89,8 @@ function sampledSync(fm, t0, tf) {
  */
 function squareWave(A, fs, phi, fm, t0, tf) {
   const dt = 1/fm;
-  const N = (tf - t0) * fm;
+  let N = (tf - t0) * fm;
+  N = N < 1 ? 1 : N;
   const dts = add(multiply(Array.from(Array(N).keys()), dt), t0);
   const base = 2 * pi * fs;
 
@@ -83,7 +109,8 @@ function squareWave(A, fs, phi, fm, t0, tf) {
  */
 function triangleWave(A, fs, phi, fm, t0, tf) {
   const dt = 1/fm;
-  const N = (tf - t0) * fm;
+  let N = (tf - t0) * fm;
+  N = N < 1 ? 1 : N;
   const dts = add(multiply(Array.from(Array(N).keys()), dt), t0);
   const base = 2 * pi * fs;
 
@@ -93,7 +120,8 @@ function triangleWave(A, fs, phi, fm, t0, tf) {
 
 function sawtoothWave(A, fs, phi, fm, t0, tf) {
   const dt = 1/fm;
-  const N = (tf - t0) * fm;
+  let N = (tf - t0) * fm;
+  N = N < 1 ? 1 : N;
   const dts = add(multiply(Array.from(Array(N).keys()), dt), t0);
   const base = 2 * pi * fs;
 
@@ -103,6 +131,7 @@ function sawtoothWave(A, fs, phi, fm, t0, tf) {
 
 module.exports = {
   sampledSin,
+  sampledSinWithT,
   sampledSync,
   sampledSyncExt,
   squareWave,
