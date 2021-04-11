@@ -13,7 +13,6 @@ gnuplot
   .print("set multiplot layout 2,2\n")
   .print("set tmargin 2 \n")
   .print(`set title "1000 Hz"\n`)
-  .print("unset key\n")
   .plot([
     {
       data: s1.t.pair(s1.x),
