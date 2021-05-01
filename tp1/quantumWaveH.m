@@ -3,4 +3,4 @@ function [s] = quantumWaveH(A, H, s)
   for indx = 1:length(s)
     s(indx) = round(sh(indx));
   end
-  s = 2*s/(H-1) - 1;
+  s = (2*s/(H-1) - 1)*A;
