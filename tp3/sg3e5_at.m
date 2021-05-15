@@ -7,9 +7,9 @@ fsRow = [697, 770, 852, 941];
 fsCol = [1209, 1336, 1477];
 
 x = [];
-fm = 5000;
+fm = 11025;
 tf = 1/697*10;
-figure(15); clf;
+%figure(15); clf;
 % n=1;
 % for k1 = fsRow
 %   for k2 = fsCol
@@ -61,3 +61,7 @@ for n = 1:3
   subplot(3,1,n);
   stem(c);
 end
+
+%   1   2   1   3   1   2   2
+%   2   1   2   2   2   3   2
+%   2   4   2   8   2   6   5

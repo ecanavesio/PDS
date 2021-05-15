@@ -29,46 +29,52 @@ for l = 1:7
   tf = N / fm;
 
   phiRow = [];
-  cmaxRow = [];
   for n = 1:4
     phi1 = 0;
     cmax = 0;
     for phi = 0:pi/100:pi/2
       x = sampledSin(1, fsRow(n), phi, fm, 0, tf);
       c = x * s(ns(l,1):ns(l,2)-1);
-      if abs(c) > cmax
+      if c > cmax
         phi1 = phi;
-        cmax = abs(c);
+        cmax = c;
       end%if c > cmax
     end%for phi = 0:pi/100:pi/2
     phiRow = [phiRow, phi1];
-    cmaxRow = [cmaxRow, cmax];
   end%for n = 1:3
 
   phiCol = [];
-  cmaxCol = [];
   for n = 1:3
     phi1 = 0;
     cmax = 0;
     for phi = 0:pi/100:pi/2
       x = sampledSin(1, fsCol(n), phi, fm, 0, tf);
       c = x * s(ns(l,1):ns(l,2)-1);
-      if abs(c) > cmax
+      if c > cmax
         phi1 = phi;
-        cmax = abs(c);
+        cmax = c;
       end%if c > cmax
     end%for phi = 0:pi/100:pi/2
     phiCol = [phiCol, phi1];
-    cmaxCol = [cmaxCol, cmax];
   end%for n = 1:3
 
-  [_, r1] = max(cmaxRow);
-  [_, c1] = max(cmaxCol);
+  cmax = 0;
+  for rt  = 1:4
+    for ct = 1:3
+      x = sampledSin(1, fsRow(rt), phiRow(rt), fm, 0, tf) + sampledSin(1, fsCol(ct), phiCol(ct), fm, 0, tf);
+      c = x * s(ns(l,1):ns(l,2)-1);
+      if c > cmax
+        r1 = rt;
+        c1 = ct;
+        cmax = c;
+      end%if c > cmax
+    end
+  end
 
   rs = [rs, r1];
   cs = [cs, c1];
 end%for l = 1:7
 
-% rs = 1   2   1   3   1   2   2
-% cs = 2   1   2   2   2   3   2
-% ds = 2   4   2   8   2   6   5
+% rs = 4   1   1   1   4   1   3
+% cs = 3   2   2   2   1   3   2
+% ds = #   2   2   2   *   3   8

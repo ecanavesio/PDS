@@ -11,7 +11,7 @@ ns = 0:N-1;
 ha = hA(ns);
 hb = hB(ns);
 
-x = [1, a, zeros(1, N-2)];
+x = [1, -a, zeros(1, N-2)];
 
 y1 = conv(conv(x, ha), hb)(1:N);
 y2 = conv(conv(x, hb), ha)(1:N);

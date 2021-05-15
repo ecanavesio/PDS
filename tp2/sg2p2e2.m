@@ -10,6 +10,5 @@ stem(x);
 subplot(3, 1, 2);
 stem(h);
 
-
 subplot(3, 1, 3);
 stem(y);
