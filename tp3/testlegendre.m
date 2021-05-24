@@ -1,4 +1,4 @@
-function [L, t] = legendre(n,N)
+function [L, t] = testlegendre(n,N)
   t = linspace(-1,1,N);
   L = 0;
   for k=0:n

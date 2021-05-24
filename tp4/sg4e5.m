@@ -32,6 +32,7 @@ fo = abs(fs - fm * round(fs/fm));
 fs2 = 105;
 s2 = sampledSin(A, fs2, 0, fm, 0, 1);
 S2 = fft(s2);
+fo2 = abs(fs2 - fm * round(fs2/fm));
 figure(2); clf;
 plotfft(S2, fm, @stem);
 
